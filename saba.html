@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jhake Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('image/ahaha.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: rgb(22, 21, 21);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .title {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 1.2em;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    /* Navbar styling */
+    .navbar-nav {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 auto 30px auto;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .navbar-nav li a {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #4db905;
+      background-color: #ffffffaa;
+      text-decoration: none;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      font-weight: bold;
+    }
+
+    .navbar-nav li a:hover,
+    .navbar-nav li a.active {
+      background-color: #47b42c;
+      color: #ffffff;
+      transform: scale(1.05);
+    }
+
+    /* Page Sections */
+    .page-section {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #ffffffaa;
+      border-radius: 10px;
+      color: #000;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+ 
+  
+
+  <!-- Navigation -->
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="navbar-nav">
+      <li><a href="#" onclick="showSection(event, 'home')" class="active">Home</a></li>
+      <li><a href="#" onclick="showSection(event, 'about')">About</a></li>
+      <li><a href="#" onclick="showSection(event, 'projects')">Projects</a></li>
+      <li><a href="#" onclick="showSection(event, 'contact')">Contact</a></li>
+      <li><a href="resume.html">Resume</a></li> <!-- Link to another page -->
+    </ul>
+  </div>
+
+  <!-- Sections -->
+  <section id="home" class="page-section active">
+    <h2>Home</h2>
+    <p>Welcome to the main page of my portfolio.</p>
+  </section>
+
+  <section id="about" class="page-section">
+    <h2>About Me</h2>
+    <p>I am a web developer who loves creating clean, efficient, and beautiful websites.</p>
+  </section>
+
+  <section id="projects" class="page-section">
+    <h2>My Projects</h2>
+    <p>Here you can find a collection of my recent work.</p>
+  </section>
+
+  <section id="contact" class="page-section">
+    <h2>Contact Me</h2>
+    <p>You can reach me at: jhake@example.com</p>
+  </section>
+
+  <script>
+    function showSection(event, sectionId) {
+      event.preventDefault();
+
+      // Hide all sections
+      const sections = document.querySelectorAll('.page-section');
+      sections.forEach(sec => sec.classList.remove('active'));
+
+      // Show selected section
+      document.getElementById(sectionId).classList.add('active');
+
+      // Update active class on nav links
+      const navLinks = document.querySelectorAll('.navbar-nav li a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
