@@ -6,155 +6,198 @@
   <title>Jhake Portfolio</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('image/ahaha.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      color: rgb(22, 21, 21);
-      text-align: center;
-      padding: 20px;
+    * {
       margin: 0;
-    }
-
-    .title {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    .description {
-      font-size: 1.2em;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-
-    /* Navbar styling */
-    .navbar-nav {
-      list-style-type: none;
       padding: 0;
-      margin: 0 auto 30px auto;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('image/images - Copy.jpg');
+      color: #222;
+      line-height: 1.6;
+      
+    }
+
+    /* Navbar */
+    .navbar-nav {
+      list-style: none;
       display: flex;
       justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+      gap: 20px;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
 
     .navbar-nav li a {
-      display: inline-block;
-      padding: 10px 20px;
-      color: #4db905;
-      background-color: #ffffffaa;
       text-decoration: none;
-      border-radius: 20px;
+      font-weight: 600;
+      color: #388e3c;
+      padding: 10px 18px;
+      border-radius: 30px;
       transition: all 0.3s ease;
-      font-weight: bold;
     }
 
     .navbar-nav li a:hover,
     .navbar-nav li a.active {
-      background-color: #47b42c;
-      color: #ffffff;
-      transform: scale(1.05);
+      background: #388e3c;
+      color: #fff;
+      transform: translateY(-2px);
     }
 
-    /* Page Sections */
+    /* Section styling */
     .page-section {
-      display: none;
-      margin-top: 20px;
-      padding: 20px;
-      background: #ffffffaa;
-      border-radius: 10px;
-      color: #000;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      animation: fadeIn 1s ease;
     }
 
-    .page-section.active {
-      display: block;
+    .page-section h2 {
+      font-size: 2rem;
+      color: #2e7d32;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-section p {
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+    }
+
+    /* Images */
+    img {
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+    }
+
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    /* Links */
+    a {
+      color: #388e3c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .page-section {
+        margin: 20px;
+        padding: 20px;
+      }
+      .page-section h2 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
-
 <body>
- 
-  
 
   <!-- Navigation -->
-  <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class="navbar-nav">
-      <li><a href="#" onclick="showSection(event, 'home')" class="active">Home</a></li>
-      <li><a href="#" onclick="showSection(event, 'projects')">Projects</a></li>
-      <li><a href="#" onclick="showSection(event, 'On-the-Job')">OJT</a></li>
-      <li><a href="#" onclick="showSection(event, 'contact')">Contact</a></li>
-      <li><a href="#" onclick="showSection(event, 'resume')">Resume</a></li>
-    </ul>
-  </div>
+  <ul class="navbar-nav">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#On-the-Job">OJT</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#resume">Resume</a></li>
+  </ul>
 
   <!-- Sections -->
-  <section id="home" class="page-section active">
+  <section id="home" class="page-section">
     <h2>JHAKE P. DUGADUGA</h2>
-    <p>I am a BS Information Technology graduate with practical experience in web development, CRM management, and IT support. During my On-the-Job Training at Creative Chronicles Solution, I handled CRM leads, designed marketing materials, and assisted with inventory systems. I also contributed as the front-end developer for the CTU-AC Supply Office Request Monitoring System, where I built user-friendly and responsive interfaces using HTML, CSS, JavaScript, Bootstrap, and Django templates. I am a quick learner, adaptable, and passionate about leveraging technology to create efficient solutions.</p>
- 
-    <img src="image/gwapo (1).jpg" alt="Portfolio Image" style="width: 100%; max-width: 600px; border-radius: 10px;">
+    <p>I am a BS Information Technology graduate with practical experience in web development, CRM management, and IT support. During my On-the-Job Training at Creative Chronicles Solution, I handled CRM leads, designed marketing materials, and assisted with inventory systems. I also contributed as the front-end developer for the CTU-AC Supply Office Request Monitoring System, where I built user-friendly and responsive interfaces using HTML, CSS, JavaScript, Bootstrap, and Django templates.</p>
+    <img src="image/gwapo (1).jpg" alt="Portfolio Image" style="width: 100%; max-width: 400px; height: auto;">
   </section>
-
- 
 
   <section id="projects" class="page-section">
     <h2>My Projects</h2>
     <p>Here you can find a collection of my recent school projects.</p>
-     <p>You can check it here or you may download our capstone project <a href="CAPSTONE.pdf">here</a>.</p>
-      <p>You can check it here or you may download our SUPPLY SYSTEM AND IOT project <a href="SUPPLY SYSTEM AND IOT - Sheet1.pdf">here</a>.</p>
+    <p>Download our capstone project <a href="CAPSTONE.pdf">here</a>.</p>
+    <p>Download our SUPPLY SYSTEM AND IOT project <a href="SUPPLY SYSTEM AND IOT - Sheet1.pdf">here</a>.</p>
   </section>
 
-   <section id="On-the-Job" class="page-section">
+  <section id="On-the-Job" class="page-section">
     <h2>On-the-Job Training</h2>
-    <img src="image/ccs (1)-Picsart-AiImageEnhancer.jpg" alt="OJT Image" style="width: 50%; max-width: 300px; border-radius: 10px;">
     <p>During my On-the-Job Training at Creative Chronicles Solution, I handled CRM leads, designed marketing materials, and assisted with inventory systems.</p>
-    <img src="image/ccs (3).jpg" alt="OJT Image" style="width: 50%; max-width: 300px; border-radius: 10px; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">
-  <img src="image/ccs (11).jpg" alt="OJT Image" style="width: 50%; max-width: 300px; border-radius: 10px; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">
-   <img src="image/ccs (14).jpg" alt="OJT Image" style="width: 50%; max-width: 300px; border-radius: 10px; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">
- <img src="image/ccs (8).jpg" alt="OJT Image" style="width: 50%; max-width: 300px; border-radius: 10px; margin-top: 20px; display: block; margin-left: auto; margin-right: auto;">
- 
+    <img src="image/ccs (1)-Picsart-AiImageEnhancer.jpg" alt="OJT Image" style="width: 100%; max-width: 400px; margin: 15px;">
+    <img src="image/ccs (3).jpg" alt="OJT Image" style="width: 100%; max-width: 400px; margin: 15px;">
+    <img src="image/ccs (11).jpg" alt="OJT Image" style="width: 100%; max-width: 400px; margin: 15px;">
+    <img src="image/ccs (14).jpg" alt="OJT Image" style="width: 100%; max-width: 400px; margin: 15px;">
+    <img src="image/ccs (8).jpg" alt="OJT Image" style="width: 100%; max-width: 400px; margin: 15px;">
   </section>
 
   <section id="contact" class="page-section">
     <h2>Contact Me</h2>
-     <p>You can reach me at: dugaduga.jhake01@gmail.com</p>
-     <p>You can call me at: 0952 629 3482</p>
-    <p>Feel free to connect with me on my social media platforms.</p>
-    <p>Follow me on <a href="https://www.facebook.com/share/1AyZ2X63ru/">Facebook</a> and <a href="https://github.com/gwapocjhake">GitHub</a>.</p>
+    <p>Email: <a href="mailto:dugaduga.jhake01@gmail.com">dugaduga.jhake01@gmail.com</a></p>
+    <p>Phone: 0952 629 3482</p>
+    <p>Connect with me on 
+      <a href="https://www.facebook.com/share/1AyZ2X63ru/" target="_blank">Facebook</a> | 
+     <a href="https://github.com/gwapocjhake" target="_blank">GitHub</a>
+    </p>
   </section>
 
   <section id="resume" class="page-section">
     <h2>My Resume</h2>
     <p>You can view and download my resume <a href="dugaduga_20250713_065144_0000.pdf">here</a>.</p>
-    <img src="image/resume.jpg" alt="Resume Image" style="width: 100%; max-width: 600px; border-radius: 10px;">
+    <img src="image/resume.jpg" alt="Resume Image" style="width: 100%; max-width: 600px;">
   </section>
 
   <script>
-    function showSection(event, sectionId) {
-      event.preventDefault();
+    // Active link highlight while scrolling
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar-nav li a");
 
-      // Hide all sections
-      const sections = document.querySelectorAll('.page-section');
-      sections.forEach(sec => sec.classList.remove('active'));
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
 
-      // Show selected section
-      document.getElementById(sectionId).classList.add('active');
-
-      // Update active class on nav links
-      const navLinks = document.querySelectorAll('.navbar-nav li a');
-      navLinks.forEach(link => link.classList.remove('active'));
-      event.target.classList.add('active');
-    }
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
-  
+
 </body>
 </html>
